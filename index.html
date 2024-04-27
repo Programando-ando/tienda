@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Tienda Luna</title>
+
+    
+        <style>
+      *{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+p{
+    text-align: justify;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.switch{
+    margin-left: 25%;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border: 2px solid gray;
+    display: flex;
+    border-radius: 35px;
+}
+
+.checkbox{
+    display: none;
+}
+
+.slider{
+border-radius: 50%;
+width: 20px;
+height: 20px;
+background-color: rgb(94, 156, 207);
+}
+
+input:checked + .slider{
+    translate: 20px;
+}
+    </style>
+    
+</head>
+
+<body class="text-center" onload=" cargarProductos();">
+    
+    <nav  class="navbar bg-info" >
+        <div class="container-fluid text-center">
+                <img src="tienda.jpg" alt="Bootstrap" width="30" height="24">
+            <h1 class="navbar-brand m-auto text-dark">TIENDA-LUNA</h1>
+    
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#gestionProducto" onclick="verProductos()"><i class="bi bi-gear"></i></button>
+    
+        </div>
+    </nav>
+
+    <div class="container-fluid w-80 m-auto">
+
+        <div class="card text-center mt-4">
+            <div class="card-header">
+                <img src="" alt="" height="40px">
+            </div>
+            <div class="card-body">
+                <table class="table w-50 m-auto">
+
+                    <tr>
+                    <td><h2>PRODUCTO</h2></td>
+
+                    <td><h2>IMAGEN</h2></td>
+
+                    <td><h2>PRECIO</h2></td>
+
+                    <td><h2>CANTIDAD</h2></td>
+
+                    <td><h2>AGREGAR</h2></td>
+                    
+                    </tr>
+
+                    <tr>
+
+
+                        <td><label for="">PRODUCTO</label>
+                        <select name="producto" id="productos" class="form-control">
+                           
+                        </select>
+                    </td>
+
+                    <td>
+                        <img src="" alt="" id="imgProducto" height="80px">
+                    </td>
+
+                    <td><h1 id="precioProducto">$0</h1></td>
+
+                    <td><h1 id="vcantidad">1</h1><input type="range" name="cantidad" id="inputCantidad" min="1" max="10" value="1" class="form-control w-50 m-auto"></td>
+
+                    <td><button class="btn btn-success" id="agregarCarrito"><i class="bi bi-file-plus m-3"></i> Agregar</button></td>
+                      
+                    </tr>
+                </table>
+
+                <div id="carrito"></div>
+
+            </div>
+            <div class="card-footer text-body-secondary">
+                Carlos Luna Sánchez 2024
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="gestionProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Gestion Productos</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <table class="table w-100 m-auto">
+                    <tr>
+                        <td>Producto: <input type="text" id="nombre" class="form-control"></td>
+
+                        <td>Precio <input type="number" id="precioP" class="form-control "></td>
+
+                        <td><button class="btn btn-success"  onclick="addProductos()"><i class="bi bi-plus-circle mx-3"></i></button></td>
+                    </tr>
+                </table>
+
+                <h2>Gestion Productos</h2>
+                <div id="listaProductos"></div>
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="bootstrap.bundle.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
